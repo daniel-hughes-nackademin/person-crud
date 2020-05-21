@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href=".../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+    <title>Person Registry - Summary</title>
+</head>
+<style>
+
+</style>
+<body>
+
+<h1>Person Information</h1>
+
+<a href="/new">Register new person</a>
+
+
+<table>
+    <tr>
+        <th>Person ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Occupation</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="person : ${personList}">
+        <td th:text="${person.id}">ID</td>
+        <td th:text="${person.firstName}">First Name</td>
+        <td th:text="${person.lastName}">Last Name</td>
+        <td th:text="${person.age}">Age</td>
+        <td th:text="${person.email}">Email</td>
+        <td th:text="${person.city}">City</td>
+        <td th:text="${person.occupation}">Occupation</td>
+        <td>
+            <a th:href="@{'/edit/' + ${person.id}}">Edit</a>
+            <br/>
+            <a th:href="@{'/delete/' + ${person.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

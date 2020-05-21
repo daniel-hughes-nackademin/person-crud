@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Registry - Registration</title>
+    <link href=".../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+    <h1>Enter Person Information</h1>
+
+    <form action="#" th:action="@{/save}" th:object="${currentPerson}" method="post">
+        <div>
+         <label for="firstNameField">First Name</label>
+        <input id="firstNameField" type="text" th:field="*{firstName}" required minlength="2" maxlength="20"/>
+        </div>
+        <div>
+            <label for="lastNameField">Last Name</label>
+            <input id="lastNameField" type="text" th:field="*{lastName}" required minlength="2" maxlength="20"/>
+        </div>
+        <div>
+            <label for="ageField">Age</label>
+            <input id="ageField" type="number" th:field="*{age}" min="0" max="100"/>
+        </div>
+        <div>
+            <label for="emailField">Email</label>
+            <input id="emailField" type="email" th:field="*{email}" required minlength="2" maxlength="40"/>
+        </div>
+        <div>
+            <label for="cityField">City</label>
+            <input id="cityField" type="text" th:field="*{city}" required minlength="2" maxlength="20"/>
+        </div>
+        <div>
+            <label for="occupationField">Occupation</label>
+            <input id="occupationField" type="text" th:field="*{occupation}" required minlength="2" maxlength="20"/>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</body>
+</html>
